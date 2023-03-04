@@ -4,7 +4,7 @@ A simple PHP video hosting platform for sharing individual videos.
 A basic interface is provided for uploading and managing videos. Each video has a unique link to view it, which displays in a simple page with company logo in the top left.
 
 # Install Instructions
-Place files on web server.
+Place files on web server. Replace logo.png with your own logo.
 
 Ensure the web server user has write access to the files/ directory.
 
