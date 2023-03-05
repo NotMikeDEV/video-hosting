@@ -38,14 +38,14 @@ function str2ab(str) {
   return buf;
 }
 function Base64Encode(DataArray) {
-    let FinalBase64String = ""
-    const ChunkSize = 90
+    const Base64Chunks = []
+    const ChunkSize = 120
     for (let Offset = 0; Offset < DataArray.byteLength; Offset += ChunkSize) {
         const PlainString = String.fromCharCode(...new Uint8Array(DataArray.slice(Offset, Offset + ChunkSize)))
         const Base64String = btoa(PlainString)
-        FinalBase64String += Base64String
+        Base64Chunks.push(Base64String)
     }
-    return FinalBase64String
+    return Base64Chunks.join('')
 }
 async function sha256(str) {
     const buf = await crypto.subtle.digest("SHA-256", str)
