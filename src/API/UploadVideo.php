@@ -75,7 +75,7 @@ if ($Request->Command == "Chunk") {
             . "&& sqlite3 files/database.db \"UPDATE Videos SET UploadData = NULL WHERE Filename='$NewFilename'\" "
             . "&& sqlite3 files/database.db \"UPDATE Videos SET Size = $(stat -c %s files/$NewFilename) WHERE Filename='$NewFilename'\" "
             . "&& echo \"$Video[Filename] replaced with $NewFilename\" "
-            . ")  > log.txt 2>&1 &");
+            . ")  > files/log.txt 2>&1 &");
         die(json_encode(['OK'=>true, 'Hash'=>$Hash, 'Done'=>true]));
     }
     Database("UPDATE Videos SET UploadData = :UploadData WHERE ID = :ID", [
